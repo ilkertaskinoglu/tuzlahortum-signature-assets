@@ -3,60 +3,67 @@
 
 Bu proje, bir MySQL veritabanındaki kullanıcı bilgilerini ve fotoğraflarını alarak:
 
-1. `data.csv` dosyasını üretir.  
-2. Kullanıcı fotoğraflarını `photo/` klasörüne `.jpg` formatında kaydeder.  
-3. Adobe Illustrator şablon dosyasını kullanarak her kullanıcı için:  
-   - `.ai` dosyası  
-   - `.jpg` görsel  
-   - `.png` görsel  
-   oluşturur.
+- `data.csv` dosyasını üretir.  
+- Kullanıcı fotoğraflarını `photo/` klasörüne `.jpg` formatında kaydeder.  
+- Adobe Illustrator şablon dosyasıyla her kullanıcı için:
+  - `.ai` dosyası
+  - `.jpg` görsel
+  - `.png` görsel  
+  oluşturur.
 
 ---
 
-## 🚀 Kullanım Adımları
+## 🚀 Kullanım
 
 ### 1. CSV ve Fotoğrafları Oluştur (Python Script)
 
 ```bash
 python3 generate_csv.py [PersonelKodu]
-PersonelKodu isteğe bağlıdır.
-Belirtilirse sadece o kullanıcıya ait veri işlenir.
-Belirtilmezse tüm kullanıcılar alınır.
-Örnekler:
-Tüm kullanıcılar:
+```
 
+PersonelKodu opsiyoneldir.
+Belirtilirse yalnızca ilgili kullanıcı işlenir. Belirtilmezse tüm kullanıcılar alınır.
+
+Örnek:
+Tüm kullanıcıları işlemek için:
+```bash
 python3 generate_csv.py
-Sadece IT.jpg dosyasına sahip kullanıcı:
+```
+
+Sadece IT.jpg olan kullanıcıyı işlemek için:
+```bash
 python3 generate_csv.py IT
-2. Adobe Illustrator Script'ini Çalıştır
-Python scripti tamamlandıktan sonra Illustrator'da:
-Menü:
+```
 
+2. Illustrator Script'ini Çalıştır
+Python scripti çalıştıktan sonra Illustrator'da:
 Dosya > Komut Dosyaları > Diğer Komut Dosyaları...
-Ardından exportvcard.jsx dosyasını seçin.
-Script şu klasörlere çıktı verir:
-
-.ai dosyaları → Export/
-.jpg görselleri → Export/JPG/
-.png görselleri → Export/PNG/
+Seçilecek dosya: exportvcard.jsx
+Script, data.csv ve photo/ klasörünü okuyarak şu çıktıları üretir:
+.ai → Export/
+.jpg → Export/JPG/
+.png → Export/PNG/
 📁 Klasör Yapısı
 project-root/
 ├── export_vcards.py          # CSV ve fotoğraf oluşturan Python scripti
 ├── exportvcard.jsx           # Illustrator otomasyon scripti
 ├── signature.ai              # Illustrator şablon dosyası
-├── data.csv                  # Otomatik oluşur – kullanıcı verileri
-├── photo/                    # Otomatik oluşur – kullanıcı fotoğrafları
+├── data.csv                  # Otomatik oluşur
+├── photo/                    # Kullanıcı fotoğrafları
 ├── Export/
 │   ├── JPG/
 │   └── PNG/
-└── README.md                 # Bu dosya
+└── README.md                 # Bu belge
+
+
 ⚙️ Gereksinimler
 Python 3
-pymysql kütüphanesi:
+Illustrator (ExtendScript destekleyen bir sürüm)
+Python bağımlılığı:
 pip install pymysql
-Adobe Illustrator (ExtendScript destekleyen sürüm)
-📌 Teknik Detaylar
-data.csv dosyası ; (noktalı virgül) ayracı kullanır.
+📌 Notlar
+data.csv dosyası ; (noktalı virgül) ile ayrılmıştır.
+
 Illustrator scripti aşağıdaki alanları kullanır:
 @ad
 @surname
@@ -64,7 +71,4 @@ Illustrator scripti aşağıdaki alanları kullanır:
 @mobile
 @email
 @photo
-Olası hatalar script.log dosyasına yazılır.
-👨‍💻 Geliştiren
-İlker Taşkınoğlu
-TuzlaHortum
+Hatalar script.log dosyasına yazılır.
