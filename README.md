@@ -35,25 +35,24 @@ Sadece IT.jpg olan kullanıcıyı işlemek için:
 python3 generate_csv.py IT
 ```
 
-2. Illustrator Script'ini Çalıştır
-Python scripti çalıştıktan sonra Illustrator'da:
+2. Adobe Illustrator Script'ini Hazırla
+Adobe Illustrator'ı aç.
+Menüden şunu takip et:
+```text
 Dosya > Komut Dosyaları > Diğer Komut Dosyaları...
-Seçilecek dosya: exportvcard.jsx
-Script, data.csv ve photo/ klasörünü okuyarak şu çıktıları üretir:
+```
+
+Açılan pencerede exportvcard.jsx dosyasını seç.
+
+4. vCard'ları Otomatik Olarak Oluştur
+Script çalıştığında, data.csv ve photo/ klasöründeki her satır için Illustrator şablon dosyasını kullanarak şu dosyaları otomatik olarak oluşturur:
 .ai → Export/
 .jpg → Export/JPG/
 .png → Export/PNG/
-📁 Klasör Yapısı
-project-root/
-├── export_vcards.py          # CSV ve fotoğraf oluşturan Python scripti
-├── exportvcard.jsx           # Illustrator otomasyon scripti
-├── signature.ai              # Illustrator şablon dosyası
-├── data.csv                  # Otomatik oluşur
-├── photo/                    # Kullanıcı fotoğrafları
-├── Export/
-│   ├── JPG/
-│   └── PNG/
-└── README.md                 # Bu belge
+⏳ İşlem tamamlandığında:
+Tüm çıktılar Export/ alt klasörlerinde görünür.
+Her kullanıcı için birer adet .ai, .jpg, .png dosyası oluşur.
+Hatalar varsa script.log dosyasında listelenir.
 
 
 ⚙️ Gereksinimler
